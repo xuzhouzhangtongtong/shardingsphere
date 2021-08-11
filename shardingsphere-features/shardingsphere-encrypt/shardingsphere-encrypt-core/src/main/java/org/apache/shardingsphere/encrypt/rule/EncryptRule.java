@@ -20,6 +20,7 @@ package org.apache.shardingsphere.encrypt.rule;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
 import lombok.Getter;
+import org.apache.commons.collections4.map.CaseInsensitiveMap;
 import org.apache.shardingsphere.encrypt.algorithm.config.AlgorithmProvidedEncryptRuleConfiguration;
 import org.apache.shardingsphere.encrypt.api.config.EncryptRuleConfiguration;
 import org.apache.shardingsphere.encrypt.api.config.rule.EncryptColumnRuleConfiguration;
@@ -51,7 +52,7 @@ public final class EncryptRule implements FeatureRule, SchemaRule, TableContaine
     
     private final Map<String, EncryptAlgorithm> encryptors = new LinkedHashMap<>();
     
-    private final Map<String, EncryptTable> tables = new LinkedHashMap<>();
+    private final Map<String, EncryptTable> tables = new CaseInsensitiveMap<>();
     
     @Getter
     private final boolean queryWithCipherColumn;
